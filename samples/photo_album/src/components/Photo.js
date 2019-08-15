@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Image, Transformation } from 'cloudinary-react';
 import { url } from '../utils/CloudinaryService';
-import PhotoThumbnails from './PhotoThumbnails';
+// import PhotoThumbnails from './PhotoThumbnails';
 
 class Photo extends Component {
     constructor(props) {
@@ -29,8 +29,10 @@ class Photo extends Component {
                         quality="80"
                     >
                         <Transformation quality="auto" fetchFormat="auto" />
+                        {/* <Transformation overlay="cloudinary_icon" gravity="south_east" x="5" y="5" width="50" opacity="40" /> */}
                     </Image>
                 </a>
+{/*                 
                 {!this.state.showMore && (
                     <div className="less_info">
                         <button
@@ -52,7 +54,7 @@ class Photo extends Component {
                         </button>
                         <PhotoThumbnails publicId={this.props.publicId} />
                     </div>
-                )}
+                )} */}
             </div>
         );
     }

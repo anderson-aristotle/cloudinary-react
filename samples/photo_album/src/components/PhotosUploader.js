@@ -6,6 +6,7 @@ import request from 'superagent';
 import Dropzone from 'react-dropzone';
 import { photosUploaded, updateUploadedPhoto } from '../actions';
 import UploadedPhotoStatusContainer from './UploadedPhotosStatus';
+import { ALBUM_TAG } from '../utils/Constants';
 
 class PhotosUploader extends Component {
     constructor(props, context) {
@@ -109,7 +110,7 @@ class PhotosUploader extends Component {
                 .field('upload_preset', this.context.uploadPreset)
                 .field('file', file)
                 .field('multiple', true)
-                .field('tags', title ? `myphotoalbum,${title}` : 'myphotoalbum')
+                .field('tags', title ? `${ALBUM_TAG},${title}` : ALBUM_TAG)
                 .field('context', title ? `photo=${title}` : '')
                 .on('progress', (progress) => this.onPhotoUploadProgress(photoId, file.name, progress))
                 .end((error, response) => {

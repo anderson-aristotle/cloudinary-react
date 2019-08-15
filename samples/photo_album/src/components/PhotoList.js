@@ -7,6 +7,7 @@ import { photosUploaded } from '../actions';
 import Photo from './Photo';
 import FacebookImage from './FacebookImage';
 import Introduction from './Introduction';
+import { ALBUM_TAG } from '../utils/Constants';
 
 class PhotoList extends Component {
     render() {
@@ -17,7 +18,6 @@ class PhotoList extends Component {
                     publicId2="officialchucknorrispage"
                 />
                 <Introduction />
-                <h1>Your Photos</h1>
                 <div className="actions">
                     <a
                         className="upload_link"
@@ -31,6 +31,15 @@ class PhotoList extends Component {
                         Add photo with React File upload
                     </NavLink>
                 </div>
+                <div className="actions">
+                    <NavLink exact to="/photos/test">
+                        View Test Photo
+                    </NavLink>
+                </div>
+
+                <h1>Your Photos</h1>
+                <h3>(tag: "en plein air")</h3>
+                
                 <div className="photos">
                     {this.props.photos.length === 0 && (
                         <p>No photos were added yet.</p>
@@ -60,7 +69,7 @@ class PhotoList extends Component {
     }
 
     uploadImageWithCloudinary() {
-        const uploadOptions = { tags: 'myphotoalbum', ...this.context };
+        const uploadOptions = { tags: ALBUM_TAG, ...this.context };
         openUploadWidget(uploadOptions, (error, photos) => {
             if (!error) {
                 this.props.onPhotosUploaded(photos);
