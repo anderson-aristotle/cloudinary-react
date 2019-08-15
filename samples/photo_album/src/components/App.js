@@ -6,6 +6,7 @@ import { CloudinaryContext, Image } from 'cloudinary-react';
 import { photosFetched } from '../actions';
 import PhotoListContainer from './PhotoList';
 import PhotosUploaderContainer from './PhotosUploader';
+import TestPhoto from './TestImage';
 import { fetchPhotos } from '../utils/CloudinaryService';
 import './App.css';
 
@@ -37,6 +38,11 @@ class App extends Component {
                             exact
                             path="/photos/new"
                             component={PhotosUploaderContainer}
+                        />
+                        <Route 
+                            exact 
+                            path="/photos/test" 
+                            component={TestPhoto} 
                         />
                         <Redirect from="/" to="/photos" />
                     </Switch>
