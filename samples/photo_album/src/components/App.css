@@ -80,10 +80,18 @@ img.static-photo {
     right: 0;
 }
 
+.photos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: 2px solid #ccc;
+    padding: 5px;
+}
+
 .photo {
     margin: 10px;
     padding: 10px;
-    border-top: 2px solid #ccc;
+    /* border-top: 2px solid #ccc; */
 }
 
 .photo .thumbnail {
