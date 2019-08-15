@@ -1,4 +1,4 @@
-Cloudinary React Photo Album Sample
+Cloudinary React Photo Album Sample (cantimaginewhy Fork)
 =======================================
 
 This sample project shows:
@@ -15,6 +15,9 @@ There are 2 settings you need to change for this demo to work. Copy or rename `s
 1. **cloud_name** - Should be change to the cloud name you received when you registered for a Cloudinary account.
 2. **upload_preset** - You should first "Enable unsigned uploads" in the ["Upload Settings"](https://cloudinary.com/console/settings/upload) of your Cloudinary console and assign the resulting preset name to that field. Note, you may want to tweak and modify the upload preset's parameters.
 3. Additionally, in your Cloudinary console in the ["Security Settings"](https://cloudinary.com/console/settings/security) section you should uncheck the "list" item.
+
+### Fork ###
+I already made these config changes for Cantimaginewhy
 
 ## Setup ##
 
