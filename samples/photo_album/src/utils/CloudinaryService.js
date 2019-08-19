@@ -1,6 +1,13 @@
 import { Cloudinary as CoreCloudinary, Util } from 'cloudinary-core';
 import { ALBUM_TAG } from '../utils/Constants';
 
+const defaultOptions = {
+    cloudName: 'cantimaginewhy',
+    format: 'json',
+    type: 'list',
+    version: Math.ceil(new Date().getTime() / 1000),
+};
+
 export const url = (publicId, options) => {
     const scOptions = Util.withSnakeCaseKeys(options);
     const cl = CoreCloudinary.new();
@@ -20,15 +27,18 @@ export const fetchPhotos = cloudName => {
     // Note that this practice is DISCOURAGED in production code and is here
     // for demonstration purposes only
     // *************************************************************************
-    const options = {
-        cloudName: cloudName,
-        format: 'json',
-        type: 'list',
-        version: Math.ceil(new Date().getTime() / 1000),
-    };
+    console.log('Cloudname: ', cloudName);
 
-    const urlPath = url(ALBUM_TAG, options);
+    const urlPath = url(ALBUM_TAG, defaultOptions);
 
+    return fetch(urlPath)
+        .then(res => res.text())
+        .then(text => (text ? JSON.parse(text).resources : []));
+};
+
+// fetch all images with specified tag
+export const fetchTag = tagName => {
+    const urlPath = url(tagName, defaultOptions);
     return fetch(urlPath)
         .then(res => res.text())
         .then(text => (text ? JSON.parse(text).resources : []));
