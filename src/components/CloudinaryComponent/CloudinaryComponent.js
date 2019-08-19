@@ -89,7 +89,7 @@ class CloudinaryComponent extends Component {
         for (let key in right) {
           let value = right[key];
           if (value !== null && value !== undefined) {
-            left[key] = value;
+            left[key] = value
           }
         }
         return left;
